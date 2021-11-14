@@ -1,4 +1,8 @@
-import dotenv from "dotenv";
+import * as dotenv from "dotenv";
+import { getCurrentNFLWeek } from "./src/hydration/getCurrentNFLWeek";
+import { getNFLGamesForWeek } from "./src/hydration/getNFLGamesForWeek";
 dotenv.config();
 
-console.log(process.env.KEY);
+getNFLGamesForWeek(getCurrentNFLWeek()).then((games) => {
+  console.log(games);
+});
